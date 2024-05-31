@@ -30,4 +30,5 @@ const InputLine = styled.input`
     padding: 0.5rem 0rem;
     outline: none;
     font-size: 18px;
+    background-color: transparent;
 `;
