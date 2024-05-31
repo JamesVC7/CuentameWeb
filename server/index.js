@@ -46,7 +46,7 @@ app.get("/imagen/:id", (req, res) => {
     const imagenBinaria = result[0].imagen;
 
     // Devuelve la imagen como una respuesta con el tipo de contenido adecuado
-    res.writeHead(200, { "Content-Type": "image/png" }); // Ajusta el tipo de contenido según el formato de tu imagen
+    res.writeHead(200, { "Content-Type": "image/png" }); 
     res.end(imagenBinaria, "binary");
   });
 });
@@ -85,7 +85,7 @@ app.get("/imagen-cuento/:id", (req, res) => {
     const imagenBinaria = result[0].imagen;
 
     // Devuelve la imagen como una respuesta con el tipo de contenido adecuado
-    res.writeHead(200, { "Content-Type": "image/png" }); // Ajusta el tipo de contenido según el formato de tu imagen
+    res.writeHead(200, { "Content-Type": "image/png" }); 
     res.end(imagenBinaria, "binary");
   });
 });
@@ -144,7 +144,7 @@ app.get("/imagen-paginas/:id", (req, res) => {
     const imagenBinaria = result[0].imagen;
 
     // Devuelve la imagen como una respuesta con el tipo de contenido adecuado
-    res.writeHead(200, { "Content-Type": "image/png" }); // Ajusta el tipo de contenido según el formato de tu imagen
+    res.writeHead(200, { "Content-Type": "image/png" }); 
     res.end(imagenBinaria, "binary");
   });
 });

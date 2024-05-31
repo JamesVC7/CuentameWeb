@@ -33,7 +33,7 @@ export default function Readings() {
       .catch((error) => {
         console.error('Error al obtener el nombre del cuento', error);
       });
-  }, [id_cuento]); // Asegúrate de proporcionar el id_cuento
+  }, [id_cuento]); 
 
   const handlePrevClick = () => {
     if (startIndex >= 2) {
