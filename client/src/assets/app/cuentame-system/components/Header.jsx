@@ -2,14 +2,18 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import logoCuentame from '../assets/logoC1.png'
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { useLocation, Link } from 'react-router-dom';
 
 export default function Header() {
 
+    const location = useLocation();
     const [active, setActive] = useState(false);
     
     const toggleSections = () => {
         setActive(!active);
       };
+
+    const isActive = (path) => location.pathname === path;
 
     return (
         <>
@@ -19,10 +23,10 @@ export default function Header() {
                 </Logo>
                 <Icon  onClick={toggleSections}><GiHamburgerMenu /></Icon>
                 <Sections active={active}>
-                    <Options href='/inicio'>Inicio</Options>
-                    <Options href='/nosotros'>Nosotros</Options>
-                    <Options href='/cuentos'>Cuentos</Options>
-                    <Options href='/contacto'>Contacto</Options>
+                    <Options to='/inicio' active={isActive('/inicio')}>Inicio</Options>
+                    <Options to='/nosotros' active={isActive('/nosotros')}>Nosotros</Options>
+                    <Options to='/cuentos' active={isActive('/cuentos')}>Cuentos</Options>
+                    <Options to='/contacto' active={isActive('/contacto')}>Contacto</Options>
                 </Sections>
             </Navbar>
         </>
@@ -67,11 +71,11 @@ const Sections = styled.div`
         backdrop-filter: blur(10px);
         flex-direction: column;
         right: ${props => (props.active ? '0' : '-100%')}; /* Muestra u oculta las secciones */
-        transition: right 0.3s; /* Agrega una transición suave */
+        transition: right 0.3s; 
     }
 `;
 
-const Options = styled.a`
+const Options = styled(Link)`
     position: relative;
     color:#000;
     font-weight: 500;
@@ -83,7 +87,7 @@ const Options = styled.a`
         position: absolute;
         top: 100%;
         left: 0;
-        width: 0;
+        width: ${props => (props.active ? '100%' : '0')};
         height: 2px;
         background: #646cff ;
         transition: .3s;

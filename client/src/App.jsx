@@ -27,6 +27,7 @@ const App = () => {
     <div className="App">
       <BrowserRouter>
         <Routes>
+          <Route path='/' element={<Introduction />} />
           <Route path='/inicio' element={<Introduction />} />
           <Route path='/contacto' element={<Contact />} />
           <Route path='/clásicos/:id_categoria' element={<Category title="CLASICOS" />} />
